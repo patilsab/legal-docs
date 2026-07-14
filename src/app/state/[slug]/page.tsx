@@ -37,6 +37,24 @@ const documentTypes = [
   { slug: "revocable-living-trust", title: "Revocable Living Trust" },
   { slug: "commercial-lease", title: "Commercial Lease Agreement" },
   { slug: "prenuptial-agreement", title: "Prenuptial Agreement" },
+  // Phase 4
+  { slug: "pour-over-will", title: "Pour-Over Will" },
+  { slug: "durable-power-of-attorney", title: "Durable Power of Attorney" },
+  { slug: "medical-power-of-attorney", title: "Medical Power of Attorney" },
+  { slug: "advance-healthcare-directive", title: "Advance Healthcare Directive" },
+  // Phase 5
+  { slug: "irrevocable-trust", title: "Irrevocable Trust" },
+  { slug: "warranty-deed", title: "Warranty Deed" },
+  { slug: "contract-for-deed", title: "Contract for Deed" },
+  { slug: "easement-agreement", title: "Easement Agreement" },
+  { slug: "pour-over-will", title: "Pour-Over Will" },
+  { slug: "durable-power-of-attorney", title: "Durable Power of Attorney" },
+  { slug: "medical-power-of-attorney", title: "Medical Power of Attorney" },
+  { slug: "advance-healthcare-directive", title: "Advance Healthcare Directive" },
+  { slug: "irrevocable-trust", title: "Irrevocable Trust" },
+  { slug: "warranty-deed", title: "Warranty Deed" },
+  { slug: "contract-for-deed", title: "Contract for Deed" },
+  { slug: "easement-agreement", title: "Easement Agreement" },
 ];
 
 export default async function StatePage({ params }: { params: Promise<{ slug: string }> }) {
