@@ -1,5 +1,7 @@
 'use client';
 
+import { generatePdf } from '@/lib/pdf-builder';
+
 import { useState } from 'react';
 
 const states = [
@@ -39,9 +41,24 @@ export default function NdaPage() {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert('PDF generation coming soon! Form data: ' + JSON.stringify(formData));
+    await generatePdf({
+      title: `${selectedState} Non-Disclosure Agreement`,
+      state: selectedState,
+      sections: [
+        { heading: 'Party Information', fields: [
+          { label: 'Disclosing Party', value: formData.disclosingParty },
+          { label: 'Receiving Party', value: formData.receivingParty },
+        ]},
+        { heading: 'Agreement Details', fields: [
+          { label: 'Effective Date', value: formData.effectiveDate },
+          { label: 'Confidential Information', value: formData.confidentialInfo },
+          { label: 'Term Duration', value: formData.termDuration },
+        ]},
+      ],
+      fileName: 'nda.pdf',
+    });
   };
 
   const faqs = [

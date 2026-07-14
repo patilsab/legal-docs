@@ -1,5 +1,7 @@
 'use client';
 
+import { generatePdf } from '@/lib/pdf-builder';
+
 import { useState } from 'react';
 
 const states = [
@@ -26,9 +28,25 @@ export default function EvictionNoticePage() {
     date: new Date().toISOString().split('T')[0],
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert('PDF generation coming soon! Form data: ' + JSON.stringify(formData));
+    await generatePdf({
+      title: `${selectedState.name} Eviction Notice`,
+      state: selectedState.name,
+      sections: [
+        { heading: 'Tenant Information', fields: [
+          { label: 'Tenant Name', value: formData.tenantName },
+        ]},
+        { heading: 'Property Information', fields: [
+          { label: 'Property Address', value: formData.propertyAddress },
+        ]},
+        { heading: 'Notice Details', fields: [
+          { label: 'Notice Type', value: formData.noticeType },
+          { label: 'Date', value: formData.date },
+        ]},
+      ],
+      fileName: 'eviction-notice.pdf',
+    });
   };
 
   return (

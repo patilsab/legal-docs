@@ -1,5 +1,7 @@
 'use client';
 
+import { generatePdf } from '@/lib/pdf-builder';
+
 import { useState } from 'react';
 
 const states = [
@@ -36,9 +38,29 @@ export default function DivorcePapersPage() {
     spousalSupport: false,
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert('PDF generation coming soon! Form data: ' + JSON.stringify(formData));
+    await generatePdf({
+      title: `${selectedState.name} Divorce Petition`,
+      state: selectedState.name,
+      sections: [
+        { heading: 'Party Information', fields: [
+          { label: 'Petitioner', value: formData.petitionerName },
+          { label: 'Respondent', value: formData.respondentName },
+        ]},
+        { heading: 'Marriage Information', fields: [
+          { label: 'Date of Marriage', value: formData.marriageDate },
+          { label: 'Date of Separation', value: formData.separationDate },
+        ]},
+        { heading: 'Divorce Details', fields: [
+          { label: 'Grounds', value: formData.groundsForDivorce.replace(/_/g, ' ') },
+          { label: 'Property Address', value: formData.propertyAddress },
+          { label: 'Minor Children', value: formData.hasChildren ? `${formData.numberOfChildren} children` : 'None' },
+          { label: 'Spousal Support', value: formData.spousalSupport ? 'Yes' : 'No' },
+        ]},
+      ],
+      fileName: 'divorce-papers.pdf',
+    });
   };
 
   return (

@@ -1,5 +1,7 @@
 'use client';
 
+import { generatePdf } from '@/lib/pdf-builder';
+
 import { useState } from 'react';
 
 const states = [
@@ -113,19 +115,28 @@ export default function LeaseAgreementPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert(
-      'PDF generation coming soon!\n\n' +
-        `State: ${selectedState.name}\n` +
-        `Landlord: ${formData.landlordName}\n` +
-        `Tenant: ${formData.tenantName}\n` +
-        `Property: ${formData.propertyAddress}\n` +
-        `Lease Start: ${formData.leaseStartDate}\n` +
-        `Lease End: ${formData.leaseEndDate}\n` +
-        `Monthly Rent: $${formData.monthlyRent}\n` +
-        `Security Deposit: $${formData.securityDeposit}`
-    );
+    await generatePdf({
+      title: `${selectedState.name} Residential Lease Agreement`,
+      state: selectedState.name,
+      sections: [
+        { heading: 'Party Information', fields: [
+          { label: 'Landlord Name', value: formData.landlordName },
+          { label: 'Tenant Name', value: formData.tenantName },
+        ]},
+        { heading: 'Property Information', fields: [
+          { label: 'Property Address', value: formData.propertyAddress },
+        ]},
+        { heading: 'Lease Terms', fields: [
+          { label: 'Lease Start Date', value: formData.leaseStartDate },
+          { label: 'Lease End Date', value: formData.leaseEndDate },
+          { label: 'Monthly Rent', value: `$${formData.monthlyRent}` },
+          { label: 'Security Deposit', value: `$${formData.securityDeposit}` },
+        ]},
+      ],
+      fileName: 'lease-agreement.pdf',
+    });
   };
 
   return (

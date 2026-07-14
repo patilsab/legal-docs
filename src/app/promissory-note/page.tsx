@@ -1,5 +1,7 @@
 'use client';
 
+import { generatePdf } from '@/lib/pdf-builder';
+
 import { useState } from 'react';
 
 const states = [
@@ -46,9 +48,33 @@ export default function PromissoryNotePage() {
     collateralDescription: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert('PDF generation coming soon! Form data: ' + JSON.stringify(formData));
+    await generatePdf({
+      title: `${selectedState.name} Promissory Note`,
+      state: selectedState.name,
+      sections: [
+        { heading: 'Lender Information', fields: [
+          { label: 'Lender Name', value: formData.lenderName },
+          { label: 'Lender Address', value: formData.lenderAddress },
+        ]},
+        { heading: 'Borrower Information', fields: [
+          { label: 'Borrower Name', value: formData.borrowerName },
+          { label: 'Borrower Address', value: formData.borrowerAddress },
+        ]},
+        { heading: 'Loan Terms', fields: [
+          { label: 'Principal Amount', value: `$${formData.loanAmount}` },
+          { label: 'Interest Rate', value: `${formData.interestRate}%` },
+          { label: 'Repayment Type', value: formData.repaymentType.replace(/_/g, ' ') },
+          { label: 'Payment Due', value: formData.paymentDueDate ? `${formData.paymentDueDate}th of month` : 'N/A' },
+          { label: 'Late Fee', value: `$${formData.lateFee}` },
+          { label: 'Effective Date', value: formData.effectiveDate },
+          { label: 'Maturity Date', value: formData.maturityDate || 'N/A' },
+          { label: 'Secured', value: formData.secured ? 'Yes' : 'No' },
+        ]},
+      ],
+      fileName: 'promissory-note.pdf',
+    });
   };
 
   return (

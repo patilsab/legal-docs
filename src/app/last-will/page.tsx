@@ -1,5 +1,7 @@
 'use client';
 
+import { generatePdf } from '@/lib/pdf-builder';
+
 import { useState } from 'react';
 
 const states = [
@@ -41,9 +43,28 @@ export default function LastWillPage() {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert('PDF generation coming soon! Form data: ' + JSON.stringify(formData));
+    await generatePdf({
+      title: `${selectedState} Last Will and Testament`,
+      state: selectedState,
+      sections: [
+        { heading: 'Testator Information', fields: [
+          { label: 'Testator Name', value: formData.testatorName },
+        ]},
+        { heading: 'Executor Information', fields: [
+          { label: 'Executor Name', value: formData.executorName },
+          { label: 'Executor Contact', value: formData.executorContact },
+        ]},
+        { heading: 'Estate Details', fields: [
+          { label: 'Beneficiaries', value: formData.beneficiaryNames },
+          { label: 'Specific Bequests', value: formData.specificBequests },
+          { label: 'Property Address', value: formData.propertyAddress },
+          { label: 'Date', value: formData.date },
+        ]},
+      ],
+      fileName: 'last-will.pdf',
+    });
   };
 
   const faqs = [

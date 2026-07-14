@@ -1,5 +1,7 @@
 'use client';
 
+import { generatePdf } from '@/lib/pdf-builder';
+
 import { useState } from 'react';
 
 const states = [
@@ -40,9 +42,32 @@ export default function BillOfSalePage() {
     paymentMethod: 'cash',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert('PDF generation coming soon! Form data: ' + JSON.stringify(formData));
+    await generatePdf({
+      title: `${selectedState.name} Bill of Sale`,
+      state: selectedState.name,
+      sections: [
+        { heading: 'Seller Information', fields: [
+          { label: 'Seller Name', value: formData.sellerName },
+          { label: 'Seller Address', value: formData.sellerAddress },
+        ]},
+        { heading: 'Buyer Information', fields: [
+          { label: 'Buyer Name', value: formData.buyerName },
+          { label: 'Buyer Address', value: formData.buyerAddress },
+        ]},
+        { heading: 'Item Details', fields: [
+          { label: 'Description', value: formData.itemDescription },
+          { label: 'Sale Price', value: `$${formData.salePrice}` },
+          { label: 'Date of Sale', value: formData.dateOfSale },
+          { label: 'VIN', value: formData.vehicleVin || 'N/A' },
+          { label: 'Odometer', value: formData.odometerReading ? `${formData.odometerReading} miles` : 'N/A' },
+          { label: 'Payment Method', value: formData.paymentMethod },
+          { label: 'Sold As-Is', value: formData.asIs ? 'Yes' : 'No' },
+        ]},
+      ],
+      fileName: 'bill-of-sale.pdf',
+    });
   };
 
   return (

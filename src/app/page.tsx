@@ -1,108 +1,114 @@
 import Link from "next/link";
 
 const documentTypes = [
-  { slug: "eviction-notice", title: "Eviction Notice", description: "State-specific eviction notices with proper notice periods and legal requirements.", icon: "📋", cpc: "$25-60" },
-  { slug: "lease-agreement", title: "Lease Agreement", description: "Residential lease agreements tailored to your state's landlord-tenant laws.", icon: "📝", cpc: "$20-45" },
-  { slug: "power-of-attorney", title: "Power of Attorney", description: "General, special, and medical power of attorney forms.", icon: "⚖️", cpc: "$20-50" },
-  { slug: "divorce-papers", title: "Divorce Papers", description: "Divorce petition, settlement agreement, and custody forms.", icon: "💔", cpc: "$40-80" },
-  { slug: "last-will", title: "Last Will and Testament", description: "Create your will with state-specific requirements and executor designation.", icon: "📜", cpc: "$30-70" },
-  { slug: "bill-of-sale", title: "Bill of Sale", description: "Vehicle, boat, and general bill of sale templates for your state.", icon: "🚗", cpc: "$15-30" },
-  { slug: "promissory-note", title: "Promissory Note", description: "Loan agreements with interest rates, repayment terms, and late fees.", icon: "💰", cpc: "$20-50" },
-  { slug: "nda", title: "Non-Disclosure Agreement", description: "Protect your confidential business and personal information.", icon: "🔒", cpc: "$15-35" },
+  { slug: "eviction-notice", title: "Eviction Notice", description: "State-specific eviction notices with required notice periods and legal requirements.", icon: "🏠" },
+  { slug: "lease-agreement", title: "Lease Agreement", description: "Residential lease agreements with rent terms, deposits, and tenant obligations.", icon: "📋" },
+  { slug: "power-of-attorney", title: "Power of Attorney", description: "Authorize someone to act on your behalf for financial, medical, or legal matters.", icon: "⚖️" },
+  { slug: "divorce-papers", title: "Divorce Papers", description: "Divorce petition templates with grounds, custody, and property division.", icon: "📑" },
+  { slug: "last-will", title: "Last Will & Testament", description: "Plan your estate with executor, beneficiary, and asset distribution details.", icon: "📜" },
+  { slug: "bill-of-sale", title: "Bill of Sale", description: "Document the sale of personal property including vehicles and valuables.", icon: "💰" },
+  { slug: "promissory-note", title: "Promissory Note", description: "Formal loan agreements with interest rates, payment terms, and security.", icon: "📝" },
+  { slug: "nda", title: "Non-Disclosure Agreement", description: "Protect confidential information with binding NDA templates.", icon: "🔒" },
+  { slug: "rental-application", title: "Rental Application", description: "Screen potential tenants with comprehensive rental application forms.", icon: "🏡" },
+  { slug: "living-will", title: "Living Will", description: "Advance directives for healthcare decisions when you cannot communicate.", icon: "🏥" },
+  { slug: "child-custody", title: "Child Custody Agreement", description: "Custody arrangements, visitation schedules, and child support terms.", icon: "👨‍👩‍👧" },
+  { slug: "separation-agreement", title: "Separation Agreement", description: "Legal separation terms including property, support, and custody.", icon: "📄" },
+  { slug: "purchase-agreement", title: "Purchase Agreement", description: "Real estate purchase contracts with contingencies and closing terms.", icon: "🏠" },
+  { slug: "affidavit", title: "Affidavit", description: "Sworn legal statements with notary requirements by state.", icon: "✍️" },
+  { slug: "cease-desist", title: "Cease & Desist", description: "Demand letters for harassment, defamation, or intellectual property violations.", icon: "⛔" },
+  { slug: "medical-authorization", title: "Medical Authorization", description: "HIPAA-compliant medical records release forms.", icon: "🩺" },
 ];
 
-const topStates = ["California", "Texas", "Florida", "New York", "Illinois", "Pennsylvania", "Ohio", "Georgia", "North Carolina", "Michigan"];
+const topStates = [
+  { name: "California", abbr: "CA" },
+  { name: "Texas", abbr: "TX" },
+  { name: "Florida", abbr: "FL" },
+  { name: "New York", abbr: "NY" },
+  { name: "Illinois", abbr: "IL" },
+  { name: "Pennsylvania", abbr: "PA" },
+  { name: "Ohio", abbr: "OH" },
+  { name: "Georgia", abbr: "GA" },
+  { name: "North Carolina", abbr: "NC" },
+  { name: "Michigan", abbr: "MI" },
+];
 
 export default function Home() {
   return (
-    <div>
-      <section className="bg-gradient-to-br from-primary-700 to-primary-900 py-16 text-white">
-        <div className="mx-auto max-w-7xl px-4 text-center">
-          <h1 className="text-4xl font-bold md:text-5xl">Free Legal Document Templates</h1>
-          <p className="mx-auto mt-4 max-w-2xl text-lg text-primary-100">
-            State-specific templates for all 50 US states. Fill out online, download as PDF. No signup required.
-          </p>
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <header className="bg-white shadow-sm">
+        <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+          <h1 className="text-3xl font-bold text-gray-900">
+            <Link href="/" className="hover:text-primary-600">📄 LegalDocs</Link>
+          </h1>
+          <p className="mt-2 text-gray-600">Free legal document templates for every situation</p>
         </div>
-      </section>
+      </header>
 
-      <section className="py-16">
-        <div className="mx-auto max-w-7xl px-4">
-          <h2 className="mb-8 text-2xl font-bold text-gray-900">Popular Document Types</h2>
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {documentTypes.map((doc) => (
-              <Link key={doc.slug} href={`/${doc.slug}`} className="group rounded-lg border bg-white p-6 shadow-sm transition hover:shadow-md">
-                <div className="text-3xl">{doc.icon}</div>
-                <h3 className="mt-3 text-lg font-semibold text-gray-900 group-hover:text-primary-600">{doc.title}</h3>
-                <p className="mt-2 text-sm text-gray-600">{doc.description}</p>
-                <span className="mt-3 inline-block rounded-full bg-primary-50 px-2 py-1 text-xs font-medium text-primary-700">Free Template</span>
-              </Link>
-            ))}
+      {/* Hero */}
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="rounded-2xl bg-gradient-to-r from-blue-600 to-blue-800 p-12 text-center text-white shadow-xl">
+          <h2 className="text-4xl font-bold">Free Legal Document Templates</h2>
+          <p className="mt-4 text-xl text-blue-100">
+            State-specific templates you can fill out and download as PDF.
+            Professional forms for individuals and businesses.
+          </p>
+          <div className="mt-8 flex justify-center gap-4">
+            <span className="rounded-lg bg-white/20 px-4 py-2 text-sm">✅ 16 Document Types</span>
+            <span className="rounded-lg bg-white/20 px-4 py-2 text-sm">✅ All 50 States</span>
+            <span className="rounded-lg bg-white/20 px-4 py-2 text-sm">✅ Download as PDF</span>
           </div>
         </div>
-      </section>
+      </div>
 
-      <section className="bg-gray-50 py-16">
-        <div className="mx-auto max-w-7xl px-4">
-          <h2 className="mb-8 text-2xl font-bold text-gray-900">Browse by State</h2>
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-5">
-            {topStates.map((state) => (
-              <Link key={state} href={`/state/${state.toLowerCase().replace(/ /g, "-")}`} className="rounded-lg border bg-white p-4 text-center font-medium text-gray-700 transition hover:border-primary-500 hover:text-primary-600">
-                {state}
-              </Link>
-            ))}
-          </div>
+      {/* Document Types Grid */}
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <h2 className="mb-8 text-2xl font-bold text-gray-900">Choose a Document Type</h2>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {documentTypes.map((doc) => (
+            <Link
+              key={doc.slug}
+              href={`/${doc.slug}`}
+              className="group rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-all hover:border-blue-300 hover:shadow-md"
+            >
+              <div className="text-3xl">{doc.icon}</div>
+              <h3 className="mt-3 text-lg font-semibold text-gray-900 group-hover:text-blue-600">
+                {doc.title}
+              </h3>
+              <p className="mt-2 text-sm text-gray-600">{doc.description}</p>
+            </Link>
+          ))}
         </div>
-      </section>
+      </div>
 
-      <section className="py-16">
-        <div className="mx-auto max-w-3xl px-4">
-          <h2 className="mb-4 text-2xl font-bold text-gray-900">Why Use LegalDocs?</h2>
-          <div className="space-y-6">
-            <div className="flex gap-4">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-100 text-primary-700">✓</div>
-              <div>
-                <h3 className="font-semibold text-gray-900">State-Specific Templates</h3>
-                <p className="text-sm text-gray-600">Every template is tailored to your state&apos;s specific legal requirements and notice periods.</p>
-              </div>
-            </div>
-            <div className="flex gap-4">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-100 text-primary-700">✓</div>
-              <div>
-                <h3 className="font-semibold text-gray-900">Interactive Form Builder</h3>
-                <p className="text-sm text-gray-600">Fill out documents online with our guided forms. No more handwriting or messy PDFs.</p>
-              </div>
-            </div>
-            <div className="flex gap-4">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-100 text-primary-700">✓</div>
-              <div>
-                <h3 className="font-semibold text-gray-900">100% Free</h3>
-                <p className="text-sm text-gray-600">No signup, no credit card, no hidden fees. Download and print immediately.</p>
-              </div>
-            </div>
-            <div className="flex gap-4">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-100 text-primary-700">✓</div>
-              <div>
-                <h3 className="font-semibold text-gray-900">Instant PDF Download</h3>
-                <p className="text-sm text-gray-600">Generate a professional PDF in seconds, ready for printing or filing.</p>
-              </div>
-            </div>
-          </div>
+      {/* State Navigation */}
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <h2 className="mb-4 text-2xl font-bold text-gray-900">Browse by State</h2>
+        <p className="mb-8 text-gray-600">Get state-specific legal templates with the correct requirements</p>
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
+          {topStates.map((state) => (
+            <Link
+              key={state.abbr}
+              href={`/state/${state.name.toLowerCase().replace(/ /g, "-")}`}
+              className="rounded-lg border border-gray-200 bg-white p-4 text-center shadow-sm transition-all hover:border-blue-300 hover:shadow-md"
+            >
+              <div className="text-lg font-bold text-gray-900">{state.abbr}</div>
+              <div className="text-sm text-gray-600">{state.name}</div>
+            </Link>
+          ))}
         </div>
-      </section>
+      </div>
 
-      <section className="bg-primary-50 py-16">
-        <div className="mx-auto max-w-3xl px-4 text-center">
-          <h2 className="text-2xl font-bold text-gray-900">8 Document Types Across All 50 States</h2>
-          <p className="mt-4 text-gray-600">
-            From eviction notices to divorce papers, we provide free, state-specific legal document templates.
-            Our interactive form builders make it easy to fill out and download professional documents.
-          </p>
-          <p className="mt-4 text-sm text-gray-500">
-            <strong>Disclaimer:</strong> These templates are for informational purposes only and do not constitute legal advice.
-            Always consult with a licensed attorney for legal advice specific to your situation.
-          </p>
+      {/* Disclaimer */}
+      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+        <div className="rounded-lg bg-yellow-50 p-6 text-sm text-yellow-800">
+          <strong>Legal Disclaimer:</strong> LegalDocs provides document templates for informational purposes only.
+          These templates are not legal advice and should not be used as a substitute for professional legal counsel.
+          Laws vary by state and change frequently. Always consult with a licensed attorney in your jurisdiction
+          before using any legal document. By using our templates, you acknowledge that LegalDocs is not a law firm
+          and does not provide legal representation.
         </div>
-      </section>
+      </div>
     </div>
   );
 }

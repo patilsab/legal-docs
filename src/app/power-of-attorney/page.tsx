@@ -1,5 +1,7 @@
 'use client';
 
+import { generatePdf } from '@/lib/pdf-builder';
+
 import { useState } from 'react';
 
 const states = [
@@ -67,9 +69,28 @@ export default function PowerOfAttorneyPage() {
     setFormData({ ...formData, powersGranted: updated });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert('PDF generation coming soon! Form data: ' + JSON.stringify(formData));
+    const powers = formData.powersGranted.join(', ') || 'Not specified';
+    await generatePdf({
+      title: `${selectedState.name} Power of Attorney`,
+      state: selectedState.name,
+      sections: [
+        { heading: 'Principal Information', fields: [
+          { label: 'Principal Name', value: formData.principalName },
+          { label: 'Principal Address', value: formData.principalAddress },
+        ]},
+        { heading: 'Agent Information', fields: [
+          { label: 'Agent Name', value: formData.agentName },
+        ]},
+        { heading: 'Powers Granted', fields: [
+          { label: 'Effective Date', value: formData.effectiveDate },
+          { label: 'Powers', value: powers },
+          { label: 'Expiration Date', value: formData.expirationDate || 'Not specified' },
+        ]},
+      ],
+      fileName: 'power-of-attorney.pdf',
+    });
   };
 
   const powers = [
