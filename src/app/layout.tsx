@@ -4,13 +4,18 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "LegalDocs - Free Legal Document Templates for All 50 US States",
   description:
-    "Download free, state-specific legal document templates. Eviction notices, lease agreements, power of attorney, and more. Fill out online, download as PDF.",
+    "Download free, state-specific legal document templates. Eviction notices, lease agreements, power of attorney, divorce papers, and more. Fill out online, download as PDF.",
   keywords: [
     "legal documents",
     "legal templates",
     "eviction notice",
     "lease agreement",
     "power of attorney",
+    "divorce papers",
+    "last will",
+    "bill of sale",
+    "promissory note",
+    "NDA",
     "free legal forms",
     "US legal documents",
   ],
@@ -25,6 +30,15 @@ export const metadata: Metadata = {
   },
 };
 
+const navItems = [
+  { href: "/eviction-notice", label: "Eviction Notice" },
+  { href: "/lease-agreement", label: "Lease Agreement" },
+  { href: "/divorce-papers", label: "Divorce Papers" },
+  { href: "/last-will", label: "Last Will" },
+  { href: "/power-of-attorney", label: "Power of Attorney" },
+  { href: "/promissory-note", label: "Promissory Note" },
+];
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -38,10 +52,15 @@ export default function RootLayout({
             <a href="/" className="text-2xl font-bold text-primary-700">
               LegalDocs
             </a>
-            <nav className="hidden gap-6 md:flex">
-              <a href="/eviction-notice" className="text-gray-600 hover:text-primary-600">Eviction Notice</a>
-              <a href="/lease-agreement" className="text-gray-600 hover:text-primary-600">Lease Agreement</a>
-              <a href="/power-of-attorney" className="text-gray-600 hover:text-primary-600">Power of Attorney</a>
+            <nav className="hidden gap-4 md:flex">
+              {navItems.map((item) => (
+                <a key={item.href} href={item.href} className="text-sm text-gray-600 hover:text-primary-600">
+                  {item.label}
+                </a>
+              ))}
+              <a href="/" className="text-sm font-medium text-primary-600 hover:text-primary-700">
+                All Types →
+              </a>
             </nav>
           </div>
         </header>
