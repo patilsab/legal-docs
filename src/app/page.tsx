@@ -17,6 +17,14 @@ const documentTypes = [
   { slug: "affidavit", title: "Affidavit", description: "Sworn legal statements with notary requirements by state.", icon: "✍️" },
   { slug: "cease-desist", title: "Cease & Desist", description: "Demand letters for harassment, defamation, or intellectual property violations.", icon: "⛔" },
   { slug: "medical-authorization", title: "Medical Authorization", description: "HIPAA-compliant medical records release forms.", icon: "🩺" },
+  // Phase 1
+  { slug: "residential-lease", title: "Residential Lease Agreement", description: "Full residential lease with state-specific terms, rent, deposits, and legal compliance.", icon: "🏘️" },
+  { slug: "quitclaim-deed", title: "Quitclaim Deed", description: "Transfer property interest without warranties. For family transfers, trusts, and title corrections.", icon: "📝" },
+  { slug: "loan-agreement", title: "Loan Agreement", description: "Comprehensive loan contracts with interest, repayment schedules, and default provisions.", icon: "💳" },
+  { slug: "business-plan", title: "Business Plan Template", description: "Professional business plan with market analysis, financials, and funding strategy.", icon: "📊" },
+  // Phase 2
+  { slug: "llc-operating-agreement", title: "LLC Operating Agreement", description: "Complete LLC agreement with member rights, management structure, and tax elections.", icon: "🏢" },
+  { slug: "employment-contract", title: "Employment Contract", description: "Professional employment agreements with compensation, benefits, and legal protections.", icon: "👔" },
 ];
 
 const topStates = [
@@ -54,7 +62,7 @@ export default function Home() {
             Professional forms for individuals and businesses.
           </p>
           <div className="mt-8 flex justify-center gap-4">
-            <span className="rounded-lg bg-white/20 px-4 py-2 text-sm">✅ 16 Document Types</span>
+            <span className="rounded-lg bg-white/20 px-4 py-2 text-sm">✅ 20 Document Types</span>
             <span className="rounded-lg bg-white/20 px-4 py-2 text-sm">✅ All 50 States</span>
             <span className="rounded-lg bg-white/20 px-4 py-2 text-sm">✅ Download as PDF</span>
           </div>

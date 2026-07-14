@@ -12,6 +12,27 @@ const documentTypes = [
   { slug: "eviction-notice", title: "Eviction Notice" },
   { slug: "lease-agreement", title: "Lease Agreement" },
   { slug: "power-of-attorney", title: "Power of Attorney" },
+  { slug: "divorce-papers", title: "Divorce Papers" },
+  { slug: "last-will", title: "Last Will & Testament" },
+  { slug: "bill-of-sale", title: "Bill of Sale" },
+  { slug: "promissory-note", title: "Promissory Note" },
+  { slug: "nda", title: "Non-Disclosure Agreement" },
+  { slug: "rental-application", title: "Rental Application" },
+  { slug: "living-will", title: "Living Will" },
+  { slug: "child-custody", title: "Child Custody Agreement" },
+  { slug: "separation-agreement", title: "Separation Agreement" },
+  { slug: "purchase-agreement", title: "Purchase Agreement" },
+  { slug: "affidavit", title: "Affidavit" },
+  { slug: "cease-desist", title: "Cease & Desist" },
+  { slug: "medical-authorization", title: "Medical Authorization" },
+  // Phase 1
+  { slug: "residential-lease", title: "Residential Lease Agreement" },
+  { slug: "quitclaim-deed", title: "Quitclaim Deed" },
+  { slug: "loan-agreement", title: "Loan Agreement" },
+  { slug: "business-plan", title: "Business Plan Template" },
+  // Phase 2
+  { slug: "llc-operating-agreement", title: "LLC Operating Agreement" },
+  { slug: "employment-contract", title: "Employment Contract" },
 ];
 
 export default async function StatePage({ params }: { params: Promise<{ slug: string }> }) {
