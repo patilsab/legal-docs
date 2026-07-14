@@ -47,14 +47,6 @@ const documentTypes = [
   { slug: "warranty-deed", title: "Warranty Deed" },
   { slug: "contract-for-deed", title: "Contract for Deed" },
   { slug: "easement-agreement", title: "Easement Agreement" },
-  { slug: "pour-over-will", title: "Pour-Over Will" },
-  { slug: "durable-power-of-attorney", title: "Durable Power of Attorney" },
-  { slug: "medical-power-of-attorney", title: "Medical Power of Attorney" },
-  { slug: "advance-healthcare-directive", title: "Advance Healthcare Directive" },
-  { slug: "irrevocable-trust", title: "Irrevocable Trust" },
-  { slug: "warranty-deed", title: "Warranty Deed" },
-  { slug: "contract-for-deed", title: "Contract for Deed" },
-  { slug: "easement-agreement", title: "Easement Agreement" },
 ];
 
 export default async function StatePage({ params }: { params: Promise<{ slug: string }> }) {
