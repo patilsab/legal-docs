@@ -25,6 +25,10 @@ const documentTypes = [
   // Phase 2
   { slug: "llc-operating-agreement", title: "LLC Operating Agreement", description: "Complete LLC agreement with member rights, management structure, and tax elections.", icon: "🏢" },
   { slug: "employment-contract", title: "Employment Contract", description: "Professional employment agreements with compensation, benefits, and legal protections.", icon: "👔" },
+  // Phase 3
+  { slug: "revocable-living-trust", title: "Revocable Living Trust", description: "Avoid probate and plan for incapacity with a comprehensive living trust.", icon: "🏛️" },
+  { slug: "commercial-lease", title: "Commercial Lease Agreement", description: "Office, retail, and industrial leases with CAM, TI allowances, and escalations.", icon: "🏢" },
+  { slug: "prenuptial-agreement", title: "Prenuptial Agreement", description: "Protect assets and define spousal support before marriage with full financial disclosure.", icon: "💍" },
 ];
 
 const topStates = [
@@ -62,7 +66,7 @@ export default function Home() {
             Professional forms for individuals and businesses.
           </p>
           <div className="mt-8 flex justify-center gap-4">
-            <span className="rounded-lg bg-white/20 px-4 py-2 text-sm">✅ 20 Document Types</span>
+            <span className="rounded-lg bg-white/20 px-4 py-2 text-sm">✅ 25 Document Types</span>
             <span className="rounded-lg bg-white/20 px-4 py-2 text-sm">✅ All 50 States</span>
             <span className="rounded-lg bg-white/20 px-4 py-2 text-sm">✅ Download as PDF</span>
           </div>

@@ -33,6 +33,10 @@ const documentTypes = [
   // Phase 2
   { slug: "llc-operating-agreement", title: "LLC Operating Agreement" },
   { slug: "employment-contract", title: "Employment Contract" },
+  // Phase 3
+  { slug: "revocable-living-trust", title: "Revocable Living Trust" },
+  { slug: "commercial-lease", title: "Commercial Lease Agreement" },
+  { slug: "prenuptial-agreement", title: "Prenuptial Agreement" },
 ];
 
 export default async function StatePage({ params }: { params: Promise<{ slug: string }> }) {
