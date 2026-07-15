@@ -1,4 +1,4 @@
 User-agent: *
-Allow: /
+Disallow: /
 
 Sitemap: https://legal-docs-patilsabs-projects.vercel.app/sitemap.xml

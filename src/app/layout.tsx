@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  robots: { index: false, follow: true },
   title: "LegalDocs - Free Legal Document Templates for All 50 US States",
   description: "Download free, state-specific legal document templates. Eviction notices, lease agreements, power of attorney, divorce papers, and more. Fill out online, download as PDF.",
   keywords: ["legal documents", "legal templates", "eviction notice", "lease agreement", "power of attorney", "divorce papers", "last will", "bill of sale", "promissory note", "NDA", "free legal forms", "US legal documents"],
