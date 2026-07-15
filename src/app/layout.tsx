@@ -66,11 +66,38 @@ export default function RootLayout({
         </header>
         <main>{children}</main>
         <footer className="border-t bg-gray-50 py-8">
-          <div className="mx-auto max-w-7xl px-4 text-center text-sm text-gray-500">
-            <p>© 2024 LegalDocs. Free legal document templates for all 50 US states.</p>
-            <p className="mt-2">
-              <strong>Disclaimer:</strong> These templates are for informational purposes only and do not constitute legal advice.
-            </p>
+          <div className="mx-auto max-w-7xl px-4">
+            <div className="grid gap-8 md:grid-cols-4">
+              <div>
+                <h3 className="mb-3 font-semibold text-gray-900">LegalDocs</h3>
+                <p className="text-sm text-gray-600">Free legal document templates for all 50 US states. Fill out online, download as PDF.</p>
+              </div>
+              <div>
+                <h3 className="mb-3 font-semibold text-gray-900">Documents</h3>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li><a href="/eviction-notice" className="hover:text-primary-600">Eviction Notice</a></li>
+                  <li><a href="/lease-agreement" className="hover:text-primary-600">Lease Agreement</a></li>
+                  <li><a href="/power-of-attorney" className="hover:text-primary-600">Power of Attorney</a></li>
+                  <li><a href="/last-will" className="hover:text-primary-600">Last Will</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="mb-3 font-semibold text-gray-900">Company</h3>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li><a href="/about-us" className="hover:text-primary-600">About Us</a></li>
+                  <li><a href="/contact-us" className="hover:text-primary-600">Contact Us</a></li>
+                  <li><a href="/terms-and-conditions" className="hover:text-primary-600">Terms & Conditions</a></li>
+                  <li><a href="/privacy-policy" className="hover:text-primary-600">Privacy Policy</a></li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="mb-3 font-semibold text-gray-900">Legal</h3>
+                <p className="text-sm text-gray-600"><strong>Disclaimer:</strong> These templates are for informational purposes only and do not constitute legal advice.</p>
+              </div>
+            </div>
+            <div className="mt-8 border-t pt-4 text-center text-sm text-gray-500">
+              <p>© 2024 LegalDocs. Free legal document templates for all 50 US states.</p>
+            </div>
           </div>
         </footer>
       </body>
