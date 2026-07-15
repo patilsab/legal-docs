@@ -44,63 +44,77 @@ const documentTypes = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow-sm">
-        <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold text-gray-900">
-            <Link href="/" className="hover:text-primary-600">📄 LegalDocs</Link>
+    <div className="min-h-screen bg-white">
+      <section className="relative overflow-hidden bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 py-20 md:py-28">
+        <div className="relative mx-auto max-w-7xl px-4 text-center">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm text-white/90 backdrop-blur-sm">
+            <span className="flex h-2 w-2 rounded-full bg-green-400"></span>
+            Free for all 50 US states
+          </div>
+          <h1 className="text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl">
+            Legal Document Templates
+            <span className="block text-blue-200">Made Simple</span>
           </h1>
-          <p className="mt-2 text-gray-600">Free legal document templates for every situation</p>
-        </div>
-      </header>
-
-      {/* Hero */}
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="rounded-2xl bg-gradient-to-r from-blue-600 to-blue-800 p-12 text-center text-white shadow-xl">
-          <h2 className="text-4xl font-bold">Free Legal Document Templates</h2>
-          <p className="mt-4 text-xl text-blue-100">
-            State-specific templates you can fill out and download as PDF.
-            Professional forms for individuals and businesses.
+          <p className="mx-auto mt-6 max-w-2xl text-lg text-blue-100 md:text-xl">
+            Create professional legal documents in minutes. State-specific templates for eviction notices, lease agreements, wills, and 34 more document types.
           </p>
-          <div className="mt-8 flex justify-center gap-4">
-            <span className="rounded-lg bg-white/20 px-4 py-2 text-sm">✅ 41 Document Types</span>
-            <span className="rounded-lg bg-white/20 px-4 py-2 text-sm">✅ All 50 States</span>
-            <span className="rounded-lg bg-white/20 px-4 py-2 text-sm">✅ Download as PDF</span>
+          <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <a href="#documents" className="rounded-xl bg-white px-8 py-3.5 text-sm font-semibold text-blue-600 shadow-lg transition hover:bg-blue-50 hover:shadow-xl">
+              Browse Documents
+            </a>
+            <a href="/about-us" className="rounded-xl border border-white/30 px-8 py-3.5 text-sm font-semibold text-white transition hover:bg-white/10">
+              Learn More
+            </a>
+          </div>
+          <div className="mt-10 flex flex-wrap justify-center gap-6 text-sm text-blue-100">
+            <div className="flex items-center gap-2"><span className="text-green-400">✓</span> 37 Document Types</div>
+            <div className="flex items-center gap-2"><span className="text-green-400">✓</span> All 50 States</div>
+            <div className="flex items-center gap-2"><span className="text-green-400">✓</span> Free to Use</div>
+            <div className="flex items-center gap-2"><span className="text-green-400">✓</span> Download as PDF</div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Document Types Grid */}
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-        <h2 className="mb-8 text-2xl font-bold text-gray-900">Choose a Document Type</h2>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {documentTypes.map((doc) => (
-            <Link
-              key={doc.slug}
-              href={`/${doc.slug}`}
-              className="group rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-all hover:border-blue-300 hover:shadow-md"
-            >
-              <div className="text-3xl">{doc.icon}</div>
-              <h3 className="mt-3 text-lg font-semibold text-gray-900 group-hover:text-blue-600">
-                {doc.title}
-              </h3>
-              <p className="mt-2 text-sm text-gray-600">{doc.description}</p>
-            </Link>
-          ))}
+      <section className="border-b border-gray-100 bg-gray-50 py-8">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+            <div className="text-center"><div className="text-3xl font-bold text-gray-900">37</div><div className="text-sm text-gray-600">Document Types</div></div>
+            <div className="text-center"><div className="text-3xl font-bold text-gray-900">50</div><div className="text-sm text-gray-600">US States</div></div>
+            <div className="text-center"><div className="text-3xl font-bold text-gray-900">1,850</div><div className="text-sm text-gray-600">Unique Pages</div></div>
+            <div className="text-center"><div className="text-3xl font-bold text-gray-900">100%</div><div className="text-sm text-gray-600">Free to Use</div></div>
+          </div>
         </div>
-      </div>
+      </section>
 
-      {/* Disclaimer */}
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-        <div className="rounded-lg bg-yellow-50 p-6 text-sm text-yellow-800">
-          <strong>Legal Disclaimer:</strong> LegalDocs provides document templates for informational purposes only.
-          These templates are not legal advice and should not be used as a substitute for professional legal counsel.
-          Laws vary by state and change frequently. Always consult with a licensed attorney in your jurisdiction
-          before using any legal document. By using our templates, you acknowledge that LegalDocs is not a law firm
-          and does not provide legal representation.
+      <section id="documents" className="py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="mb-12 text-center">
+            <h2 className="text-3xl font-bold text-gray-900 md:text-4xl">Choose a Document Type</h2>
+            <p className="mt-3 text-lg text-gray-600">Select from our comprehensive library of legal document templates</p>
+          </div>
+          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {documentTypes.map((doc) => (
+              <Link key={doc.slug} href={`/${doc.slug}`} className="card-hover group rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
+                <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 text-2xl transition group-hover:bg-blue-100">{doc.icon}</div>
+                <h3 className="mb-1 font-semibold text-gray-900 transition group-hover:text-blue-600">{doc.title}</h3>
+                <p className="mb-3 text-sm leading-relaxed text-gray-600 line-clamp-2">{doc.description}</p>
+                <div className="flex items-center justify-between">
+                  <span className="rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-600">{doc.category}</span>
+                  <span className="text-sm font-medium text-blue-600 opacity-0 transition group-hover:opacity-100">View →</span>
+                </div>
+              </Link>
+            ))}
+          </div>
         </div>
-      </div>
+      </section>
+
+      <section className="bg-gradient-to-r from-gray-900 to-gray-800 py-16">
+        <div className="mx-auto max-w-4xl px-4 text-center">
+          <h2 className="text-3xl font-bold text-white md:text-4xl">Ready to Get Started?</h2>
+          <p className="mt-4 text-lg text-gray-300">Browse our complete library of legal document templates for all 50 US states.</p>
+          <a href="#documents" className="mt-8 inline-block rounded-xl bg-blue-600 px-8 py-4 text-sm font-semibold text-white shadow-lg transition hover:bg-blue-500">Browse All Documents</a>
+        </div>
+      </section>
     </div>
   );
 }
