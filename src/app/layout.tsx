@@ -70,6 +70,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                 <ul className="space-y-2.5 text-sm text-gray-600">
                   <li><a href="/about-us" className="transition hover:text-blue-600">About Us</a></li>
                   <li><a href="/contact-us" className="transition hover:text-blue-600">Contact Us</a></li>
+                  <li><a href="/blog" className="transition hover:text-blue-600">Blog</a></li>
+                  <li><a href="/directory" className="transition hover:text-blue-600">Legal Directory</a></li>
+                  <li><a href="/guides" className="transition hover:text-blue-600">State Guides</a></li>
                   <li><a href="/terms-and-conditions" className="transition hover:text-blue-600">Terms and Conditions</a></li>
                   <li><a href="/privacy-policy" className="transition hover:text-blue-600">Privacy Policy</a></li>
                 </ul>
