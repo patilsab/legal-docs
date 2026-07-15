@@ -40,58 +40,7 @@ const documentTypes = [
   { slug: "summary-judgment", title: "Motion for Summary Judgment", description: "Request court judgment without trial when no genuine disputes exist.", icon: "⚖️", category: "Litigation" },
 ];
 
-const topStates = [
-  { name: "Alabama", abbr: "AL" },
-  { name: "Alaska", abbr: "AK" },
-  { name: "Arizona", abbr: "AZ" },
-  { name: "Arkansas", abbr: "AR" },
-  { name: "California", abbr: "CA" },
-  { name: "Colorado", abbr: "CO" },
-  { name: "Connecticut", abbr: "CT" },
-  { name: "Delaware", abbr: "DE" },
-  { name: "Florida", abbr: "FL" },
-  { name: "Georgia", abbr: "GA" },
-  { name: "Hawaii", abbr: "HI" },
-  { name: "Idaho", abbr: "ID" },
-  { name: "Illinois", abbr: "IL" },
-  { name: "Indiana", abbr: "IN" },
-  { name: "Iowa", abbr: "IA" },
-  { name: "Kansas", abbr: "KS" },
-  { name: "Kentucky", abbr: "KY" },
-  { name: "Louisiana", abbr: "LA" },
-  { name: "Maine", abbr: "ME" },
-  { name: "Maryland", abbr: "MD" },
-  { name: "Massachusetts", abbr: "MA" },
-  { name: "Michigan", abbr: "MI" },
-  { name: "Minnesota", abbr: "MN" },
-  { name: "Mississippi", abbr: "MS" },
-  { name: "Missouri", abbr: "MO" },
-  { name: "Montana", abbr: "MT" },
-  { name: "Nebraska", abbr: "NE" },
-  { name: "Nevada", abbr: "NV" },
-  { name: "New Hampshire", abbr: "NH" },
-  { name: "New Jersey", abbr: "NJ" },
-  { name: "New Mexico", abbr: "NM" },
-  { name: "New York", abbr: "NY" },
-  { name: "North Carolina", abbr: "NC" },
-  { name: "North Dakota", abbr: "ND" },
-  { name: "Ohio", abbr: "OH" },
-  { name: "Oklahoma", abbr: "OK" },
-  { name: "Oregon", abbr: "OR" },
-  { name: "Pennsylvania", abbr: "PA" },
-  { name: "Rhode Island", abbr: "RI" },
-  { name: "South Carolina", abbr: "SC" },
-  { name: "South Dakota", abbr: "SD" },
-  { name: "Tennessee", abbr: "TN" },
-  { name: "Texas", abbr: "TX" },
-  { name: "Utah", abbr: "UT" },
-  { name: "Vermont", abbr: "VT" },
-  { name: "Virginia", abbr: "VA" },
-  { name: "Washington", abbr: "WA" },
-  { name: "West Virginia", abbr: "WV" },
-  { name: "Wisconsin", abbr: "WI" },
-  { name: "Wyoming", abbr: "WY" },
-];
+
 
 export default function Home() {
   return (
@@ -115,7 +64,7 @@ export default function Home() {
             Professional forms for individuals and businesses.
           </p>
           <div className="mt-8 flex justify-center gap-4">
-            <span className="rounded-lg bg-white/20 px-4 py-2 text-sm">✅ 25 Document Types</span>
+            <span className="rounded-lg bg-white/20 px-4 py-2 text-sm">✅ 41 Document Types</span>
             <span className="rounded-lg bg-white/20 px-4 py-2 text-sm">✅ All 50 States</span>
             <span className="rounded-lg bg-white/20 px-4 py-2 text-sm">✅ Download as PDF</span>
           </div>
@@ -137,24 +86,6 @@ export default function Home() {
                 {doc.title}
               </h3>
               <p className="mt-2 text-sm text-gray-600">{doc.description}</p>
-            </Link>
-          ))}
-        </div>
-      </div>
-
-      {/* State Navigation */}
-      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-        <h2 className="mb-4 text-2xl font-bold text-gray-900">Browse by State</h2>
-        <p className="mb-8 text-gray-600">Get state-specific legal templates with the correct requirements</p>
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
-          {topStates.map((state) => (
-            <Link
-              key={state.abbr}
-              href={`/state/${state.name.toLowerCase().replace(/ /g, "-")}`}
-              className="rounded-lg border border-gray-200 bg-white p-4 text-center shadow-sm transition-all hover:border-blue-300 hover:shadow-md"
-            >
-              <div className="text-lg font-bold text-gray-900">{state.abbr}</div>
-              <div className="text-sm text-gray-600">{state.name}</div>
             </Link>
           ))}
         </div>
