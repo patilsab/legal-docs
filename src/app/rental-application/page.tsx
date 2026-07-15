@@ -75,7 +75,7 @@ export default function RentalApplicationPage() {
         <span className="mx-2">/</span>
         <a href="/rental-application" className="hover:text-primary-600">Rental Application</a>
         <span className="mx-2">/</span>
-        <span>{selectedState.name}</span>
+        <a href={`/rental-application/${selectedState.name.toLowerCase().replace(/ /g, '-')}`} className="hover:text-primary-600">{selectedState.name}</a>
       </nav>
 
       <h1 className="text-3xl font-bold text-gray-900">

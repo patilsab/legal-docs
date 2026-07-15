@@ -70,7 +70,7 @@ export default function DivorcePapersPage() {
         <span className="mx-2">/</span>
         <a href="/divorce-papers" className="hover:text-primary-600">Divorce Papers</a>
         <span className="mx-2">/</span>
-        <span>{selectedState.name}</span>
+        <a href={`/divorce-papers/${selectedState.name.toLowerCase().replace(/ /g, '-')}`} className="hover:text-primary-600">{selectedState.name}</a>
       </nav>
 
       <h1 className="text-3xl font-bold text-gray-900">{selectedState.name} Divorce Papers Template</h1>

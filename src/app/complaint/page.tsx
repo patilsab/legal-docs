@@ -136,7 +136,7 @@ export default function ComplaintPage() {
         <span className="mx-2">/</span>
         <a href="/complaint" className="hover:text-primary-600">Civil Complaint</a>
         <span className="mx-2">/</span>
-        <span>{getStateName(selectedState)}</span>
+        <a href={`/complaint/${getStateName(selectedState).toLowerCase().replace(/ /g, '-')}`} className="hover:text-primary-600">{getStateName(selectedState)}</a>
       </nav>
 
       <h1 className="text-3xl font-bold text-gray-900">

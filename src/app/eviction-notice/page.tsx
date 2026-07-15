@@ -56,7 +56,7 @@ export default function EvictionNoticePage() {
         <span className="mx-2">/</span>
         <a href="/eviction-notice" className="hover:text-primary-600">Eviction Notice</a>
         <span className="mx-2">/</span>
-        <span>{selectedState.name}</span>
+        <a href={`/eviction-notice/${selectedState.name.toLowerCase().replace(/ /g, '-')}`} className="hover:text-primary-600">{selectedState.name}</a>
       </nav>
 
       <h1 className="text-3xl font-bold text-gray-900">{selectedState.name} Eviction Notice Template</h1>

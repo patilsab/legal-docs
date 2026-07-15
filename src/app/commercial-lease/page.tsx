@@ -122,7 +122,7 @@ export default function CommercialLeasePage() {
         <span className="mx-2">/</span>
         <a href="/commercial-lease" className="hover:text-primary-600">Commercial Lease</a>
         <span className="mx-2">/</span>
-        <span>{getStateName(selectedState)}</span>
+        <a href={`/commercial-lease/${getStateName(selectedState).toLowerCase().replace(/ /g, '-')}`} className="hover:text-primary-600">{getStateName(selectedState)}</a>
       </nav>
 
       <h1 className="text-3xl font-bold text-gray-900">

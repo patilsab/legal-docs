@@ -108,7 +108,7 @@ export default function PowerOfAttorneyPage() {
         <span className="mx-2">/</span>
         <a href="/power-of-attorney" className="hover:text-primary-600">Power of Attorney</a>
         <span className="mx-2">/</span>
-        <span>{selectedState.name}</span>
+        <a href={`/power-of-attorney/${selectedState.name.toLowerCase().replace(/ /g, '-')}`} className="hover:text-primary-600">{selectedState.name}</a>
       </nav>
 
       {/* Page Title */}

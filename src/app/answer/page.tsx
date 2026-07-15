@@ -168,7 +168,7 @@ Defendant reserves the right to assert additional defenses as discovery proceeds
         <span className="mx-2">/</span>
         <a href="/answer" className="hover:text-primary-600">Answer to Complaint</a>
         <span className="mx-2">/</span>
-        <span>{getStateName(selectedState)}</span>
+        <a href={`/answer/${getStateName(selectedState).toLowerCase().replace(/ /g, '-')}`} className="hover:text-primary-600">{getStateName(selectedState)}</a>
       </nav>
 
       <h1 className="text-3xl font-bold text-gray-900">

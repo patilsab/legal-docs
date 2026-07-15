@@ -142,7 +142,7 @@ export default function RevocableLivingTrustPage() {
         <span className="mx-2">/</span>
         <a href="/revocable-living-trust" className="hover:text-primary-600">Revocable Living Trust</a>
         <span className="mx-2">/</span>
-        <span>{getStateName(selectedState)}</span>
+        <a href={`/revocable-living-trust/${getStateName(selectedState).toLowerCase().replace(/ /g, '-')}`} className="hover:text-primary-600">{getStateName(selectedState)}</a>
       </nav>
 
       <h1 className="text-3xl font-bold text-gray-900">

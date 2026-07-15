@@ -109,7 +109,7 @@ export default function MedicalAuthorizationPage() {
         <span className="mx-2">/</span>
         <a href="/medical-authorization" className="hover:text-primary-600">Medical Authorization</a>
         <span className="mx-2">/</span>
-        <span>{selectedState.name}</span>
+        <a href={`/medical-authorization/${selectedState.name.toLowerCase().replace(/ /g, '-')}`} className="hover:text-primary-600">{selectedState.name}</a>
       </nav>
 
       {/* Title */}

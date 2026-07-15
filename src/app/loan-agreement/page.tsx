@@ -101,7 +101,7 @@ export default function LoanAgreementPage() {
         <span className="mx-2">/</span>
         <a href="/loan-agreement" className="hover:text-primary-600">Loan Agreement</a>
         <span className="mx-2">/</span>
-        <span>{getStateName(selectedState)}</span>
+        <a href={`/loan-agreement/${getStateName(selectedState).toLowerCase().replace(/ /g, '-')}`} className="hover:text-primary-600">{getStateName(selectedState)}</a>
       </nav>
 
       <h1 className="text-3xl font-bold text-gray-900">

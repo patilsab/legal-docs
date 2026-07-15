@@ -151,7 +151,7 @@ export default function LeaseAgreementPage() {
           Lease Agreement
         </a>
         <span className="mx-2">/</span>
-        <span>{selectedState.name}</span>
+        <a href={`/lease-agreement/${selectedState.name.toLowerCase().replace(/ /g, '-')}`} className="hover:text-primary-600">{selectedState.name}</a>
       </nav>
 
       {/* H1 Title */}

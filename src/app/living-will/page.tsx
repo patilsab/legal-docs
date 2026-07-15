@@ -60,7 +60,7 @@ export default function LivingWillPage() {
         <span className="mx-2">/</span>
         <a href="/living-will" className="hover:text-primary-600">Living Will</a>
         <span className="mx-2">/</span>
-        <span>{selectedState.name}</span>
+        <a href={`/living-will/${selectedState.name.toLowerCase().replace(/ /g, '-')}`} className="hover:text-primary-600">{selectedState.name}</a>
       </nav>
 
       <h1 className="text-3xl font-bold text-gray-900">

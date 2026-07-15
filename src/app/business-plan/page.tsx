@@ -133,7 +133,7 @@ export default function BusinessPlanPage() {
         <span className="mx-2">/</span>
         <a href="/business-plan" className="hover:text-primary-600">Business Plan</a>
         <span className="mx-2">/</span>
-        <span>{getStateName(selectedState)}</span>
+        <a href={`/business-plan/${getStateName(selectedState).toLowerCase().replace(/ /g, '-')}`} className="hover:text-primary-600">{getStateName(selectedState)}</a>
       </nav>
 
       <h1 className="text-3xl font-bold text-gray-900">

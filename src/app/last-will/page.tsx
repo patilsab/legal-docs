@@ -98,7 +98,7 @@ export default function LastWillPage() {
         <span className="mx-2">/</span>
         <a href="/last-will" className="hover:text-primary-600">Last Will and Testament</a>
         <span className="mx-2">/</span>
-        <span>{selectedState}</span>
+        <a href={`/last-will/${selectedState.toLowerCase().replace(/ /g, '-')}`} className="hover:text-primary-600">{selectedState}</a>
       </nav>
 
       {/* Title */}

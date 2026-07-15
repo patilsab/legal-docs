@@ -131,7 +131,7 @@ export default function EmploymentContractPage() {
         <span className="mx-2">/</span>
         <a href="/employment-contract" className="hover:text-primary-600">Employment Contract</a>
         <span className="mx-2">/</span>
-        <span>{getStateName(selectedState)}</span>
+        <a href={`/employment-contract/${getStateName(selectedState).toLowerCase().replace(/ /g, '-')}`} className="hover:text-primary-600">{getStateName(selectedState)}</a>
       </nav>
 
       <h1 className="text-3xl font-bold text-gray-900">

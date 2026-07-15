@@ -122,7 +122,7 @@ export default function DurablePowerOfAttorneyPage() {
         <span className="mx-2">/</span>
         <a href="/durable-power-of-attorney" className="hover:text-primary-600">Durable Power of Attorney</a>
         <span className="mx-2">/</span>
-        <span>{getStateName(selectedState)}</span>
+        <a href={`/durable-power-of-attorney/${getStateName(selectedState).toLowerCase().replace(/ /g, '-')}`} className="hover:text-primary-600">{getStateName(selectedState)}</a>
       </nav>
 
       <h1 className="text-3xl font-bold text-gray-900">

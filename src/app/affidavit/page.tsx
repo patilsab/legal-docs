@@ -125,7 +125,7 @@ export default function AffidavitPage() {
         <span className="mx-2">/</span>
         <a href="/affidavit" className="hover:text-primary-600">Affidavit</a>
         <span className="mx-2">/</span>
-        <span>{selectedState.name}</span>
+        <a href={`/affidavit/${selectedState.name.toLowerCase().replace(/ /g, '-')}`} className="hover:text-primary-600">{selectedState.name}</a>
       </nav>
 
       <h1 className="text-3xl font-bold text-gray-900">{selectedState.name} Free Affidavit Template</h1>

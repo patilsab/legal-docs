@@ -84,7 +84,7 @@ export default function PromissoryNotePage() {
         <span className="mx-2">/</span>
         <a href="/promissory-note" className="hover:text-primary-600">Promissory Note</a>
         <span className="mx-2">/</span>
-        <span>{selectedState.name}</span>
+        <a href={`/promissory-note/${selectedState.name.toLowerCase().replace(/ /g, '-')}`} className="hover:text-primary-600">{selectedState.name}</a>
       </nav>
 
       <h1 className="text-3xl font-bold text-gray-900">{selectedState.name} Promissory Note Template</h1>

@@ -120,7 +120,7 @@ export default function EasementAgreementPage() {
         <span className="mx-2">/</span>
         <a href="/easement-agreement" className="hover:text-primary-600">Easement Agreement</a>
         <span className="mx-2">/</span>
-        <span>{getStateName(selectedState)}</span>
+        <a href={`/easement-agreement/${getStateName(selectedState).toLowerCase().replace(/ /g, '-')}`} className="hover:text-primary-600">{getStateName(selectedState)}</a>
       </nav>
 
       <h1 className="text-3xl font-bold text-gray-900">

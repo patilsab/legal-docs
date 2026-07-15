@@ -103,7 +103,7 @@ export default function CeaseDesistPage() {
         <span className="mx-2">/</span>
         <a href="/cease-desist" className="hover:text-primary-600">Cease and Desist</a>
         <span className="mx-2">/</span>
-        <span>{selectedState.name}</span>
+        <a href={`/cease-desist/${selectedState.name.toLowerCase().replace(/ /g, '-')}`} className="hover:text-primary-600">{selectedState.name}</a>
       </nav>
 
       {/* Title */}

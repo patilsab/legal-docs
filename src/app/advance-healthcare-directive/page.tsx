@@ -134,7 +134,7 @@ export default function AdvanceHealthcareDirectivePage() {
         <span className="mx-2">/</span>
         <a href="/advance-healthcare-directive" className="hover:text-primary-600">Advance Healthcare Directive</a>
         <span className="mx-2">/</span>
-        <span>{getStateName(selectedState)}</span>
+        <a href={`/advance-healthcare-directive/${getStateName(selectedState).toLowerCase().replace(/ /g, '-')}`} className="hover:text-primary-600">{getStateName(selectedState)}</a>
       </nav>
 
       <h1 className="text-3xl font-bold text-gray-900">

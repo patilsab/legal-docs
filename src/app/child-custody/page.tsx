@@ -64,7 +64,7 @@ export default function ChildCustodyPage() {
         <span className="mx-2">/</span>
         <a href="/child-custody" className="hover:text-primary-600">Child Custody Agreement</a>
         <span className="mx-2">/</span>
-        <span>{selectedState.name}</span>
+        <a href={`/child-custody/${selectedState.name.toLowerCase().replace(/ /g, '-')}`} className="hover:text-primary-600">{selectedState.name}</a>
       </nav>
 
       <h1 className="text-3xl font-bold text-gray-900">

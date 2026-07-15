@@ -92,7 +92,7 @@ export default function NdaPage() {
         <span className="mx-2">/</span>
         <a href="/nda" className="hover:text-primary-600">NDA</a>
         <span className="mx-2">/</span>
-        <span>{selectedState}</span>
+        <a href={`/nda/${selectedState.toLowerCase().replace(/ /g, '-')}`} className="hover:text-primary-600">{selectedState}</a>
       </nav>
 
       {/* Title */}

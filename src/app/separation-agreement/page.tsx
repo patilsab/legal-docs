@@ -141,7 +141,7 @@ export default function SeparationAgreementPage() {
         <span className="mx-2">/</span>
         <a href="/separation-agreement" className="hover:text-primary-600">Separation Agreement</a>
         <span className="mx-2">/</span>
-        <span>{selectedState.name}</span>
+        <a href={`/separation-agreement/${selectedState.name.toLowerCase().replace(/ /g, '-')}`} className="hover:text-primary-600">{selectedState.name}</a>
       </nav>
 
       <h1 className="text-3xl font-bold text-gray-900">{selectedState.name} Free Separation Agreement Template</h1>
