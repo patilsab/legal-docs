@@ -193,7 +193,7 @@ export default async function DocStatePage({ params }: { params: Promise<{ doc: 
         <div className="rounded-xl bg-gradient-to-r from-blue-600 to-blue-800 p-8 text-center text-white">
           <h2 className="text-2xl font-bold">Ready to Create Your {doc.title}?</h2>
           <p className="mt-2 text-blue-100">Use our interactive form to create a customized {doc.title.toLowerCase()} for {sn}.</p>
-          <Link href={`/${docSlug}`} className="mt-4 inline-block rounded-lg bg-white px-6 py-3 font-semibold text-blue-600 shadow-sm transition hover:bg-blue-50">Build Your {doc.title} →</Link>
+          <Link href={`/${docSlug}/${stateSlug}/form`} className="mt-4 inline-block rounded-lg bg-white px-6 py-3 font-semibold text-blue-600 shadow-sm transition hover:bg-blue-50">Build Your {doc.title} →</Link>
         </div>
         <section className="mt-12">
           <h2 className="mb-4 text-xl font-bold text-gray-900">Browse {doc.title} by State</h2>
