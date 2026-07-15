@@ -124,15 +124,66 @@ export default async function DocPage({ params }: { params: Promise<{ doc: strin
           ))}
         </div>
 
-        {/* Category Info */}
-        <div className="mt-12 rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-          <h2 className="mb-4 text-xl font-bold text-gray-900">About {doc.title}</h2>
-          <p className="text-gray-700 mb-4">{doc.description}</p>
-          <p className="text-gray-700">
-            Each state has specific legal requirements for {doc.title.toLowerCase()} documents. 
-            Select your state above to view the state-specific requirements, legal notes, 
-            and create a customized {doc.title.toLowerCase()} that complies with your state&apos;s laws.
-          </p>
+        {/* About Section */}
+        <div className="mt-12 rounded-xl border border-gray-200 bg-white p-8 shadow-sm">
+          <h2 className="mb-4 text-2xl font-bold text-gray-900">About {doc.title}</h2>
+          <p className="mb-6 text-lg leading-relaxed text-gray-700">{doc.description}</p>
+          
+          <div className="prose prose-gray max-w-none space-y-4">
+            <h3 className="text-xl font-bold text-gray-900">What is a {doc.title}?</h3>
+            <p className="text-gray-700">A {doc.title.toLowerCase()} is a legally binding document used in the United States to establish rights, obligations, and agreements between parties. This type of document is governed by state-specific laws and regulations, which vary from state to state. Understanding the legal requirements in your jurisdiction is essential to ensure your {doc.title.toLowerCase()} is valid and enforceable.</p>
+            
+            <h3 className="text-xl font-bold text-gray-900">Why You Need a {doc.title}</h3>
+            <p className="text-gray-700">Having a properly drafted {doc.title.toLowerCase()} is essential for protecting your interests and ensuring legal compliance. Without a valid {doc.title.toLowerCase()}, you may face disputes, legal complications, or financial losses. A well-drafted document clearly outlines the rights and responsibilities of all parties, reducing the risk of misunderstandings and conflicts.</p>
+            
+            <h3 className="text-xl font-bold text-gray-900">Key Components</h3>
+            <p className="text-gray-700">A comprehensive {doc.title.toLowerCase()} should include the following essential components:</p>
+            <ul className="list-disc list-inside space-y-2 text-gray-700">
+              <li><strong>Identification of Parties:</strong> Full legal names and contact information of all parties involved</li>
+              <li><strong>Purpose and Scope:</strong> Clear description of the document&apos;s purpose and the agreement being made</li>
+              <li><strong>Terms and Conditions:</strong> Detailed terms, timelines, and obligations of each party</li>
+              <li><strong>Legal Disclosures:</strong> State-specific disclosures required by law</li>
+              <li><strong>Signatures:</strong> Proper execution with required witnesses or notarization</li>
+              <li><strong>Governing Law:</strong> Specification of which state&apos;s laws apply to the document</li>
+            </ul>
+            
+            <h3 className="text-xl font-bold text-gray-900">State-Specific Requirements</h3>
+            <p className="text-gray-700">Each state has unique requirements for {doc.title.toLowerCase()} documents. These may include specific language requirements, mandatory disclosures, notarization requirements, and filing procedures. Select your state above to view the specific requirements and legal notes that apply to your jurisdiction.</p>
+            
+            <h3 className="text-xl font-bold text-gray-900">How to Use Our {doc.title} Templates</h3>
+            <p className="text-gray-700">Our {doc.title.toLowerCase()} templates are designed to be easy to use while meeting all legal requirements. Follow these steps to create your document:</p>
+            <ol className="list-decimal list-inside space-y-2 text-gray-700">
+              <li>Select your state from the options above</li>
+              <li>Review the state-specific legal requirements and notes</li>
+              <li>Fill out the interactive form with your information</li>
+              <li>Download the PDF for printing or signing</li>
+              <li>Have the document reviewed by a licensed attorney before use</li>
+            </ol>
+            
+            <h3 className="text-xl font-bold text-gray-900">Frequently Asked Questions</h3>
+            <div className="space-y-4">
+              <div className="rounded-lg bg-gray-50 p-4">
+                <h4 className="font-semibold text-gray-900">Is a {doc.title.toLowerCase()} legally binding?</h4>
+                <p className="mt-2 text-gray-700">Yes, a properly drafted and executed {doc.title.toLowerCase()} is legally binding in all 50 US states, provided it meets the specific requirements of the state where it is created and executed.</p>
+              </div>
+              <div className="rounded-lg bg-gray-50 p-4">
+                <h4 className="font-semibold text-gray-900">Do I need a lawyer to create a {doc.title.toLowerCase()}?</h4>
+                <p className="mt-2 text-gray-700">While not required, it is highly recommended to have a qualified attorney review your {doc.title.toLowerCase()} to ensure it complies with state-specific laws and protects your interests.</p>
+              </div>
+              <div className="rounded-lg bg-gray-50 p-4">
+                <h4 className="font-semibold text-gray-900">How long does a {doc.title.toLowerCase()} remain valid?</h4>
+                <p className="mt-2 text-gray-700">The validity period depends on the type of document and state law. Some documents have specific expiration dates, while others remain valid until terminated or modified by the parties.</p>
+              </div>
+              <div className="rounded-lg bg-gray-50 p-4">
+                <h4 className="font-semibold text-gray-900">Can a {doc.title.toLowerCase()} be modified after signing?</h4>
+                <p className="mt-2 text-gray-700">Most {doc.title.toLowerCase()} documents can be modified if all parties agree to the changes. Modifications should be documented in writing and executed with the same formalities as the original document.</p>
+              </div>
+            </div>
+            
+            <h3 className="text-xl font-bold text-gray-900">Important Disclaimers</h3>
+            <p className="text-gray-700">The {doc.title.toLowerCase()} templates and information provided on this website are for informational purposes only and do not constitute legal advice. We are not a law firm and do not provide legal representation. You should consult with a licensed attorney in your jurisdiction before using any legal document.</p>
+            <p className="text-gray-700">Laws vary by state and change frequently. While we strive to keep our templates up-to-date, we cannot guarantee that they reflect the most current legal requirements in your state. Always verify that your document complies with current state and local laws.</p>
+          </div>
         </div>
 
         {/* Related Documents */}
