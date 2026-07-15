@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "LegalDocs - Free Legal Document Templates for All 50 US States",
   description: "Download free, state-specific legal document templates. Eviction notices, lease agreements, power of attorney, divorce papers, and more. Fill out online, download as PDF.",
   keywords: ["legal documents", "legal templates", "eviction notice", "lease agreement", "power of attorney", "divorce papers", "last will", "bill of sale", "promissory note", "NDA", "free legal forms", "US legal documents"],
-  openGraph: { title: "LegalDocs - Free Legal Document Templates", description: "Download free, state-specific legal document templates for all 50 US states.", url: "https://legaldocs.com", siteName: "LegalDocs", locale: "en_US", type: "website" },
+  openGraph: { title: "LegalDocs - Free Legal Document Templates", description: "Download free, state-specific legal document templates for all 50 US states.", url: "https://legal-docs-patilsabs-projects.vercel.app", siteName: "LegalDocs", locale: "en_US", type: "website" },
 };
 
 const navItems = [
