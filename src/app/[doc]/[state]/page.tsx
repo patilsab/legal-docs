@@ -1,4 +1,6 @@
 import { notFound } from 'next/navigation';
+import fs from 'fs';
+import path from 'path';
 import Link from 'next/link';
 import { US_STATES, getStateBySlug, getStateName, getStateLegalNotes } from '@/lib/state-engine';
 
@@ -46,11 +48,102 @@ function getAllStates() {
   return US_STATES.map(s => ({ name: s.name, abbr: s.abbr, slug: s.name.toLowerCase().replace(/\s+/g, '-') }));
 }
 
+function parseMarkdownSections(rawMarkdown: string): { h: string; c: string }[] {
+  const sections: { h: string; c: string }[] = [];
+  const lines = rawMarkdown.split('\n');
+  let currentHeading = '';
+  let currentContent: string[] = [];
+
+  for (const line of lines) {
+    const headingMatch = line.match(/^\*\*(.+?)\*\*\s*$/);
+    if (headingMatch) {
+      if (currentHeading) {
+        sections.push({ h: currentHeading, c: currentContent.join('\n').trim() });
+      }
+      currentHeading = headingMatch[1];
+      currentContent = [];
+    } else {
+      currentContent.push(line);
+    }
+  }
+  if (currentHeading) {
+    sections.push({ h: currentHeading, c: currentContent.join('\n').trim() });
+  }
+  return sections;
+}
+
+function loadAIContent(docSlug: string, stateSlug: string): string | null {
+  try {
+    const filePath = path.join(process.cwd(), 'public', 'content', `${docSlug}.json`);
+    const raw = fs.readFileSync(filePath, 'utf-8');
+    const data: Record<string, any> = JSON.parse(raw);
+    const stateData = data[stateSlug];
+    if (!stateData) return null;
+    if (typeof stateData === 'string') return stateData;
+    if (stateData.rawMarkdown) return stateData.rawMarkdown;
+    return null;
+  } catch {
+    return null;
+  }
+}
+
 function getContent(docSlug: string, sn: string, sa: string) {
   const doc = DOCUMENT_TYPES.find(d => d.slug === docSlug);
   const title = doc?.title || docSlug;
   const notes = getStateLegalNotes(docSlug, sa as any);
   const S = sn;
+  const stateSlug = S.toLowerCase().replace(/\s+/g, '-');
+
+  // Try AI-generated content first
+  const aiMarkdown = loadAIContent(docSlug, stateSlug);
+  if (aiMarkdown) {
+    const aiSections = parseMarkdownSections(aiMarkdown);
+    const intro = aiSections.length > 0 ? aiSections[0].c : '';
+    const contentSections = aiSections.length > 1 ? aiSections.slice(1).filter(s => s.c.length > 10) : aiSections;
+    return {
+      title: `${S} ${title} - Free Legal Template`,
+      desc: `Free ${S} ${title.toLowerCase()} template with state-specific legal requirements for ${S} law.`,
+      intro,
+      sections: contentSections,
+      isAIContent: true,
+      notes,
+      steps: [
+        `Determine the type of ${title.toLowerCase()} needed for your situation`,
+        `Research ${S} state requirements for this type of document`,
+        'Gather all necessary information and documentation',
+        'Draft the document using a template or attorney assistance',
+        'Review the document for accuracy and completeness',
+        'Have the document reviewed by a qualified attorney',
+        'Execute the document with proper formalities (notarization, witnesses)',
+        'Provide copies to all parties involved',
+        'Store the original document in a safe location',
+        'Keep records of all related communications and transactions',
+      ],
+      requirements: [
+        'Full legal names and addresses of all parties',
+        'Clear description of the subject matter',
+        'Complete terms and conditions',
+        'Signatures of all parties',
+        `Compliance with ${S} state statutes`,
+        'Notarization (if required)',
+        'Witness signatures (if required)',
+        'Required statutory disclosures',
+      ],
+      tips: [
+        `Always use ${S}-specific templates or attorney-drafted documents`,
+        'Use clear, specific language throughout the document',
+        'Include all required legal disclosures and notices',
+        'Have the document reviewed before signing',
+        'Keep copies of all executed documents',
+        `Consult with a ${S} attorney for complex situations`,
+      ],
+      faqs: [
+        { q: `Is a ${title.toLowerCase()} legally binding in ${S}?`, a: `Yes, a properly drafted and executed ${title.toLowerCase()} is legally binding in ${S}, provided it meets all legal requirements under ${S} law.` },
+        { q: `Do I need a lawyer for a ${title.toLowerCase()} in ${S}?`, a: `While not required, it is highly recommended to consult with a qualified ${S} attorney.` },
+      ],
+    };
+  }
+
   return {
     title: `${S} ${title} - Free Legal Template`,
     desc: `Free ${S} ${title.toLowerCase()} template with state-specific legal requirements for ${S} law.`,
@@ -175,7 +268,7 @@ export default async function DocStatePage({ params }: { params: Promise<{ doc: 
         {c.sections.map((s, i) => (
           <section key={i} className="mb-10">
             <h2 className="mb-4 text-2xl font-bold text-gray-900">{s.h}</h2>
-            <div className="prose prose-gray max-w-none">{s.c.split('\n\n').map((p, j) => (<p key={j} className="mb-4 leading-relaxed text-gray-700">{p.split('**').map((part, k) => k % 2 === 1 ? <strong key={k} className="font-semibold text-gray-900">{part}</strong> : part)}</p>))}</div>
+            <div className="prose prose-gray max-w-none">{s.c.split('\n\n').filter((p: string) => p.trim()).map((p: string, j: number) => (<p key={j} className="mb-4 leading-relaxed text-gray-700">{p.split('\n').map((line: string, l: number) => (<span key={l}>{line.split('**').map((part: string, k: number) => k % 2 === 1 ? <strong key={k} className="font-semibold text-gray-900">{part}</strong> : part)}{l < p.split('\n').length - 1 && <br />}</span>))}</p>))}</div>
           </section>
         ))}
         <section className="mb-10 rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
